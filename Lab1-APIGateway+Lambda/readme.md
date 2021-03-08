@@ -5,7 +5,7 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
 ## 配置 Lambda 的访问权限  
 在本实验中，Lambda函数将会访问DynamoDB，所以需要配置 DynamoDB的访问权限。这就需要在IAM中新建如下的角色。并且修改Lambda的执行权限为这个新建的角色。可以由IAM管理员统一新建该角色为lambda_access_dynamoDB，然后每位学员只需要修改自己Lambda的执行角色。
 
-1. 创建一个新角色，受信实体选择Lambda  
+1. 创建一个新角色, 受信实体选择Lambda  
 ![20](./img/img20.png)
 
 2. 配置权限策略，配置 AmazonDynamoDBFullAccess 权限和 AWSLambdaBasicExecutionRole  
@@ -122,4 +122,4 @@ def lambda_handler(event, context):
 * Lambda 支持什么开发语言？不在列表上的能支持吗？
   
 ----------------------
-整理 by Yihui, Han
+Updated by Yihui, Han
