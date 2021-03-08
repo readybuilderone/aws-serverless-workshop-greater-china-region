@@ -14,8 +14,8 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
 3. 配置角色的名称，完成新建  
 ![22](./img/img22.png)
 
-4. 修改Lambda的执行角色，为新建的角色  
-![23](./img/img23.png)
+<!-- 4. 修改Lambda的执行角色，为新建的角色  
+![23](./img/img23.png) -->
 
 
 ## 搭建 Hello World
@@ -26,21 +26,22 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
   
 2. 输入一个名字，选择开发语言  
 观察这里可以使用的开发语言，并选择Python3.7开发语言进行本实验  
-选择一个执行角色，先选择Lambda_basic_excution，这个角色可以让Lambda上传Logs到CloudWatch  
-![2](./img/img02.png)
+选择上一步创建的角色: lambda_access_dynamoDB。  
+![2](./img/img24.png)
 然后点击创建函数  
 
 3. 保存Lambda函数  
 观察Lambda函数的配置界面：触发器、代码窗口、Lambda权限、角色权限、内存、运行超时时间、并发  
 在本实验中，以上配置暂时保持默认值  
-![a](./img/imga.png)
-![b](./img/imgb.png)
+![a](./img/img25.png)
+![b](./img/img27.png)
+![c](./img/img26.png)
 
 4. 创建API  
 在AWS控制，APIGateway服务中，新建一个API
-![3](./img/img03.png)  
+![3](./img/img28.png)  
 配置基本信息  
-![4](./img/img04.png)
+![4](./img/img29.png)
 
 5. 创建一个GET方法
 ![5](./img/img05.png)
@@ -49,7 +50,7 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
 
 6. 配置API触发Lambda
 这里选择配置较简易的代理集成，并输入Lambda的名称（输入前面的字母就可以下拉选择），完成保存
-![7](./img/img07.png)
+![7](./img/img30.png)
 如果要让API进行数据转换的话，则可以取消代理集成，直接配置转换模版  
 
 7. 部署API
@@ -66,7 +67,7 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
 
 9. 修改Lambda
 回到Lambda的界面，对代码的响应部分进行修改，记得要保存Lambda
-![12](./img/img12.png)
+![12](./img/img31.png)
 刷新并观察浏览器的响应。
 ![13](./img/img13.png)
 
@@ -75,7 +76,7 @@ This lab is to build a serverless website with Amazon API Gateway and AWS Lambda
 
 1. 创建一个 DynamoDB 数据库表  
 到AWS控制台的DynamoDB服务界面，创建一个DynamoDB数据库表
-![14](./img/img14.png)
+![14](./img/img32.png)
 
 2. 命名，并配置主键
 给数据库表定义一个名称（跟其他表不要冲突），并设置主键，例如“id”
@@ -103,7 +104,7 @@ def lambda_handler(event, context):
     }
 ```
 代码替换后的效果如下图，记得保存
-![17](./img/img17.png)
+![17](./img/img33.png)
 
 5. 刷新浏览器访问  
 刷新刚才访问APIGateway的浏览器页面，这时候，你将看到你的整个数据库查询响应以JSON格式返回了
@@ -121,4 +122,4 @@ def lambda_handler(event, context):
 * Lambda 支持什么开发语言？不在列表上的能支持吗？
   
 ----------------------
-整理 by Huang, Zhuobin
+整理 by Yihui, Han
