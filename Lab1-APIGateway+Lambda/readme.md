@@ -2,6 +2,22 @@
 This lab is to build a serverless website with Amazon API Gateway and AWS Lambda  
 本实验的目的是使用 Amazon API Gateway 和 AWS Lambda 快速搭建一个无服务器网站  
 
+## 配置 Lambda 的访问权限  
+在本实验中，Lambda函数将会访问DynamoDB，所以需要配置 DynamoDB的访问权限。这就需要在IAM中新建如下的角色。并且修改Lambda的执行权限为这个新建的角色。可以由IAM管理员统一新建该角色为lambda_access_dynamoDB，然后每位学员只需要修改自己Lambda的执行角色。
+
+1. 创建一个新角色，受信实体选择Lambda  
+![20](./img/img20.png)
+
+2. 配置权限策略，配置 AmazonDynamoDBFullAccess 权限和 AWSLambdaBasicExecutionRole  
+![21](./img/img21.png)
+
+3. 配置角色的名称，完成新建  
+![22](./img/img22.png)
+
+4. 修改Lambda的执行角色，为新建的角色  
+![23](./img/img23.png)
+
+
 ## 搭建 Hello World
 
 1. 新建一个 Lambda 
@@ -94,20 +110,7 @@ def lambda_handler(event, context):
 ![18](./img/img18.png)
 如果报错查询不到数据库，则请检查上面的数据库表名称是否跟你刚才新建的数据库表名一致
 
-## 配置 Lambda 的访问权限  
-在前面的步骤中，如果没有配置 Lambda 访问 DynamoDB 的访问权限，实际上是无法访问到数据库的，需要在IAM中新建如下的角色。并且修改Lambda的执行权限为这个新建的角色。可以由IAM管理员统一新建该角色为lambda_access_dynamoDB，然后每位学员只需要修改自己Lambda的执行角色。
 
-1. 创建一个新角色，受信实体选择Lambda  
-![20](./img/img20.png)
-
-2. 配置权限策略，配置 AmazonDynamoDBFullAccess 权限和 AWSLambdaBasicExecutionRole  
-![21](./img/img21.png)
-
-3. 配置角色的名称，完成新建  
-![22](./img/img22.png)
-
-4. 修改Lambda的执行角色，为新建的角色  
-![23](./img/img23.png)
 
 ## 思考  
 
